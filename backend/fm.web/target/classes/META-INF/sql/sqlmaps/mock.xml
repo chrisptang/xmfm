@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="AccountQualityAnalysisCached">
+	<parameterMap id="I_O_Params" class="java.util.Map">
+		<parameter property="p_account_ids" javaType="java.lang.Object"
+			jdbcType="ARRAY" typeHandler="SummitService.util.NumberArrayTypeHandlerCallback"
+			mode="IN" />
+		<parameter property="p_product_ids" javaType="java.lang.Object"
+			jdbcType="ARRAY" typeHandler="SummitService.util.NumberArrayTypeHandlerCallback"
+			mode="IN" />
+		<parameter property="p_device_type_ids" javaType="java.lang.Object"
+			jdbcType="VARCHAR" typeHandler="SummitService.util.NumberArrayTypeHandlerCallback"
+			mode="IN" />
+		<parameter property="p_start_date" javaType="java.util.Date"
+			jdbcType="DATE" mode="IN" />
+		<parameter property="p_end_date" javaType="java.util.Date"
+			jdbcType="DATE" mode="IN" />
+
+		<parameter property="c_summary"
+			typeHandler="SummitService.util.CacheResultSetTypeHandlerCallback"
+			jdbcType="ORACLECURSOR" mode="OUT" />
+		<parameter property="c_top_ad_group"
+			typeHandler="SummitService.util.CacheResultSetTypeHandlerCallback"
+			jdbcType="ORACLECURSOR" mode="OUT" />
+		<parameter property="c_bottom_ad_group"
+			typeHandler="SummitService.util.CacheResultSetTypeHandlerCallback"
+			jdbcType="ORACLECURSOR" mode="OUT" />
+		<parameter property="c_roll_up"
+			typeHandler="SummitService.util.CacheResultSetTypeHandlerCallback"
+			jdbcType="ORACLECURSOR" mode="OUT" />
+		<parameter property="c_app_data"
+			typeHandler="SummitService.util.CacheResultSetTypeHandlerCallback"
+			jdbcType="ORACLECURSOR" mode="OUT" />
+	</parameterMap>
+
+	<procedure id="sp_account_quality" parameterMap="I_O_Params"
+		resultClass="java.util.HashMap" remapResults="false">
+		{call
+		PKG_SMMT_RPT_KWD_QS.sp_account_quality(?,?,?,?,?,?,?,?,?,?)}
+	</procedure>
+</sqlMap>
