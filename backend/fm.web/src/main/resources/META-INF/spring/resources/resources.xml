@@ -17,7 +17,7 @@ http://www.springframework.org/schema/tx/spring-tx-3.0.xsd"
 		<property name="locations"> <value>classpath*:META-INF/properties/*.properties</value> 
 		</property> </bean> -->
 
-	<bean id="mockApi" class="com.mengmeng.fm.resources.MockApi">
-	</bean>
+	<!-- <bean id="mockApi" class="com.mengmeng.fm.resources.MockApi">
+	</bean> -->
 
 </beans>

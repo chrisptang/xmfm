@@ -10,16 +10,18 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @author derrick.tangp May 11, 2014 10:20:21 PM
  */
+@Component
 @Path("/hello")
 public class MockApi {
 
     @GET
     @Path("/{param}")
-    public Response getMsg(@PathParam("param")
-    String msg) {
+    public Response getMsg(@PathParam("param") String msg) {
 
         String output = "Jersey say : " + msg;
 
@@ -27,4 +29,3 @@ public class MockApi {
 
     }
 }
-
